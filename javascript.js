@@ -12,14 +12,39 @@ function getComputerChoice (array) {
 
 }
 
-// array of choice
+// array of choices
 const choice = ['rock', 'paper', 'scissors'];
 //console.log(getComputerChoice(choice))
 
+//console.log(userInput); 
 
-//get input from the user and conver to lower case
+function playRound(playerSelection, computerSelection) {
+    let draw = `Its a draw, ${playerSelection} does not beat ${computerSelection}`;
+    let win = `You won! ${playerSelection} beats ${computerSelection}`;
+    let lose = `You lost! ${playerSelection} does not beat ${computerSelection}`;
+
+    if (playerSelection === computerSelection){
+        return draw;
+    }
+
+    else if (
+        (playerSelection === choice[0] && computerSelection === choice[2]) || 
+        (playerSelection === choice[1] && computerSelection === choice[0]) ||
+        (playerSelection === choice[2] && computerSelection === choice[1])) {
+        return win;
+    }
+
+    else if (
+        (playerSelection === choice[0] && computerSelection === choice[1]) ||
+        (playerSelection === choice[1] && computerSelection === choice[2]) ||
+        (playerSelection === choice[2] && computerSelection === choice[0])) {
+        return lose;
+    }
+  }
+  //get input from the user and convert to lower case
 let userInput = prompt("Rock, Paper or Scissors?").toLowerCase();
 while (userInput !== 'rock' && userInput !== 'scissors' && userInput !== 'paper') {
     let userInput = prompt("Rock, Paper or Scissors?");
     }
-console.log(userInput); 
+  const computerSelection = getComputerChoice(choice);
+  console.log(playRound(userInput, computerSelection));
