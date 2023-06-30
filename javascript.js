@@ -14,5 +14,12 @@ function getComputerChoice (array) {
 
 // array of choice
 const choice = ['rock', 'paper', 'scissors'];
+//console.log(getComputerChoice(choice))
 
-console.log(getComputerChoice(choice))
+
+//get input from the user and conver to lower case
+let userInput = prompt("Rock, Paper or Scissors?").toLowerCase();
+while (userInput !== 'rock' && userInput !== 'scissors' && userInput !== 'paper') {
+    let userInput = prompt("Rock, Paper or Scissors?");
+    }
+console.log(userInput); 
